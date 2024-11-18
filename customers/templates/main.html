@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Customers {% endblock %}
+
+
+{% block content %}
+
+    {% for customer in customers %}
+        {{ customer.name }}
+        <a href="{% url 'customers:customer_render_pdf_view' customer.pk %}">
+            <button type="submit" class="btn btn-success">Pdf</button>
+        </a>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
